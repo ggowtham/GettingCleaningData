@@ -20,6 +20,8 @@ Project Definition.
   - Appropriately labels the data set with descriptive activity names. 
   - Creates a second, independent tidy data set with the average of each variable for each activity and each     subject. 
   
+  The source for the data is [1].
+  
 run_analysis.R
 ---------------
 
@@ -48,4 +50,10 @@ main:
    
 Note:
 -----
-   We use the **reshape2** library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.] or follow the site [http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.
+   We use the **reshape2** library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [2] or follow the site [3]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.
+
+References:
+----------
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+[2]W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.
+[3]http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/

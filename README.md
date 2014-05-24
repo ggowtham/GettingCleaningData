@@ -50,7 +50,9 @@ main:
    
 Note:
 -----
-   We use the **reshape2** library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [2] or follow the site [3]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.
+  1 We use the **reshape2** library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [2] or follow the site [3]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.
+   
+  2 Remember the R script can be run as long as the Samsung data is in your working directory (i.e. you should be inside the UCI HAR Dataset directory after unzip the data and the script should be there)
 
 References:
 ----------

@@ -48,4 +48,4 @@ main:
    
 Note:
 -----
-   We use the reshape2 library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.] or follow the site [http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.
+   We use the **reshape2** library, to reshape the data and to do the merging of the data using the variables: *ActivityID*, *ActivityName* and *SubjectID*, also to include the maen of the mesures for the different subjects in the final file, we follow the recomendations in the book [W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.] or follow the site [http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/]. This technique was applied in the functions: the genTidyData and reshapeTheDataAndAddMean.

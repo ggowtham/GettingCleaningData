@@ -74,7 +74,7 @@ mergeLabelData <- function() {
 # W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.
 # or:http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/
 ##
-getTidyData <- function(merged_data) {
+genTidyData <- function(merged_data) {
   ids = c("ActivityID", "ActivityName", "SubjectID")
   mesure = setdiff(colnames(merged_data), ids)
   m_data <- melt(merged_data, id=ids, measure.vars=mesure)
@@ -95,7 +95,7 @@ reshapeTheDataAndAddMean <-function(data){
 generateTidyDataFile <- function(fileName) {
   print("Notice that the data files should be availale in the current directory with the same directory structure as the downloaded archive.")
   print(paste0("The tidy data willbe stores in a files named:", fileName, " inside the directory"))
-  tidyD <- reshapeTheDataAndAddMean(getTidyData(mergeLabelData()))
+  tidyD <- reshapeTheDataAndAddMean(genTidyData(mergeLabelData()))
   write.table(tidyD, fileName)
 }
 

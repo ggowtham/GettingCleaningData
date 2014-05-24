@@ -2,6 +2,7 @@
 #Helper functions for: Read data X and Y, get subjects, get columns names
 #subset Columns Names (get just mean and std), a function to get the X data by subject.
 ##
+library(reshape2)
 getYdata <- function(path2, type) {
   theFile <- file.path(path2, paste0("y_", type, ".txt"))
   resultX <- read.table(theFile, header=F, col.names=c("ActivityID"))
@@ -74,18 +75,27 @@ mergeLabelData <- function() {
 # or:http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/
 ##
 getTidyData <- function(merged_data) {
-  library(reshape2)
   ids = c("ActivityID", "ActivityName", "SubjectID")
   mesure = setdiff(colnames(merged_data), ids)
   m_data <- melt(merged_data, id=ids, measure.vars=mesure)
-  dcast(m_data, ActivityName + SubjectID ~ variable, mean)    
+  m_data
+}
+
+##
+# Here we are following the recipe "5.19. Converting Data from Wide to Long" of: 
+# W. Chang R Graphics Cookbook, O'Reilly Media, Inc. 2013.
+# http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/
+##
+reshapeTheDataAndAddMean <-function(data){
+  c_data <- dcast(data, ActivityName + SubjectID ~ variable, mean)
+  c_data
 }
 
 # save the tidy data in a file in the local directory
 generateTidyDataFile <- function(fileName) {
   print("Notice that the data files should be availale in the current directory with the same directory structure as the downloaded archive.")
   print(paste0("The tidy data willbe stores in a files named:", fileName, " inside the directory"))
-  tidyD <- getTidyData(mergeLabelData())
+  tidyD <- reshapeTheDataAndAddMean(getTidyData(mergeLabelData()))
   write.table(tidyD, fileName)
 }
 
@@ -94,3 +104,4 @@ generateTidyDataFile <- function(fileName) {
 # local folder.
 ##
 generateTidyDataFile("tidy.txt")
+

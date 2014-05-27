@@ -5,6 +5,7 @@ The Source for the original data is [1]: you can download the data [here](https:
 
 
 The project requeries the following transformation of the data:
+
 1. The data Training and test are merged together.
 2. The merging include also the subject data and the actvity data.
 3. The labeling of the resulting data frame according with the MeasureName.
